@@ -1,0 +1,12 @@
+/* ANCHOR Print Styles */
+@media print {
+  .site-header,
+  .site-footer,
+  #sidebar,
+  #navToggle { display: none !important; }
+
+  main { padding: 0 !important; }
+
+  a { color: black; text-decoration: underline; }
+}
+/* /ANCHOR Print Styles */

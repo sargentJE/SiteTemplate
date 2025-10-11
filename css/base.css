@@ -1,0 +1,37 @@
+/* ANCHOR Global Resets */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: #141414; background: #fff; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; line-height: 1.6; }
+img, svg { display: block; max-width: 100%; }
+/* /ANCHOR Global Resets */
+
+/* ANCHOR Design Tokens */
+:root {
+  --ink: #141414;
+  --muted: #666;
+  --bg: #fff;
+  --panel: #fff;
+  --brand: #0b6bcb;
+  --brand-ink: #fff;
+  --border: #e8e8e8;
+  --radius: 12px;
+  --container: 72rem;
+  --focus: #ffbf47;
+  --sidebar-width: 280px;
+  --sidebar-mode: mobile;
+  --shadow-soft: -4px 0 20px rgba(0, 0, 0, 0.1);
+}
+/* /ANCHOR Design Tokens */
+
+/* ANCHOR Typography & Links */
+a { color: var(--brand); text-decoration-thickness: .08em; text-underline-offset: .22em; }
+:focus, :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.lead { color: var(--muted); }
+/* /ANCHOR Typography & Links */
+
+/* ANCHOR Layout Helpers */
+.container { max-width: var(--container); margin-inline: auto; padding-inline: 1rem; }
+.hidden-visually { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; }
+.no-scroll { overflow: hidden; }
+.stack-inline { display: inline-flex; align-items: center; gap: 0.5rem; }
+/* /ANCHOR Layout Helpers */
