@@ -1,5 +1,5 @@
 /* ANCHOR Surface Components */
-.card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; box-shadow: 0 8px 16px rgba(20, 20, 20, 0.04); }
+.card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; box-shadow: 0 10px 20px rgba(20, 20, 20, 0.04); }
 /* /ANCHOR Surface Components */
 
 /* ANCHOR Buttons */
@@ -11,8 +11,8 @@
 /* /ANCHOR Buttons */
 
 /* ANCHOR Responsive Grids */
-.grid-2 { display: grid; gap: 1rem; }
-.grid-3 { display: grid; gap: 1rem; }
+.grid-2 { display: grid; gap: 1rem; border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; box-shadow: 0 10px 20px rgba(20, 20, 20, 0.04);}
+.grid-3 { display: grid; gap: 1rem; border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; box-shadow: 0 10px 20px rgba(20, 20, 20, 0.04);}
 @media (min-width: 900px) {
   .grid-2 { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }

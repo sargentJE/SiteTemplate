@@ -2,7 +2,7 @@
 .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 .skip-link:focus { left: 1rem; top: 1rem; background: var(--focus); color: #000; padding: 0.5rem 0.75rem; border-radius: 8px; }
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 0.6rem; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; min-height: var(--header-height); padding-inline: 1rem; }
 .brand { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: inherit; font-weight: 700; }
 .brand-mark { inline-size: 32px; block-size: 32px; border-radius: 10px; background: linear-gradient(135deg, #2563eb, #38bdf8); }
 /* /ANCHOR Header */
@@ -69,23 +69,34 @@
 }
 /* /ANCHOR Sidebar Backdrop */
 
+/* ANCHOR Page Body */
+.app-shell { flex: 1; display: flex; flex-direction: column; width: 100%; }
+.page-body { flex: 1; width: 100%; }
+
+main { flex: 1; padding-block: 2.5rem; }
+.section { padding-block: 2rem; }
+/* /ANCHOR Page Body */
+
 /* ANCHOR Desktop Layout */
 @media (min-width: 1000px) {
   :root { --sidebar-mode: desktop; }
 
-  body { display: flex; flex-direction: column; min-height: 100vh; }
-
-  .site-header { position: relative; }
-
-  .page-wrapper { display: flex; flex: 1; }
+  .page-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
 
   .site-sidebar {
     position: sticky;
-    top: 1.5rem;
+    top: calc(var(--header-height) + 1.5rem);
     align-self: flex-start;
     width: 240px;
     min-width: 240px;
-    max-height: calc(100vh - 3rem);
+    max-height: calc(100vh - var(--header-height) - 3rem);
     transform: none;
     border-right: 1px solid var(--border);
     border-left: none;
@@ -100,14 +111,9 @@
     padding: 0 1rem 1.5rem;
   }
 
-  main { flex: 1; min-width: 0; }
+  main { min-width: 0; padding-block: 3rem; }
 
   #navToggle { display: none; }
   .sidebar-backdrop { display: none; }
 }
 /* /ANCHOR Desktop Layout */
-
-/* ANCHOR Main Sections */
-main { padding-block: 2.5rem; }
-.section { padding-block: 2rem; }
-/* /ANCHOR Main Sections */

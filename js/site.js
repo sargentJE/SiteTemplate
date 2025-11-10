@@ -2,15 +2,13 @@
 (function () {
   // SECTION HTML Injection
   async function inject(selector, url) {
-    const host = document.querySelector(selector);
-    if (!host) return;
-    try {
-      const res = await fetch(url, { credentials: "same-origin" });
-      if (!res.ok) throw new Error("Failed to fetch " + url);
-      host.innerHTML = await res.text();
-    } catch (err) {
-      console.error(err);
-    }
+    const mount = document.querySelector(selector);
+    if (!mount) return;
+
+    const res = await fetch(url, { credentials: "same-origin" });
+    if (!res.ok) throw new Error("Failed to fetch " + url);
+    mount.innerHTML = await res.text();
+    return mount;
   }
   // /SECTION HTML Injection
 
@@ -66,34 +64,73 @@
   }
   // /SECTION Sidebar Behaviour
 
-  // SECTION Desktop Layout Wrapper
-  function wrapForDesktop() {
-    const sidebar = document.getElementById("sidebar");
-    const main = document.querySelector("main");
-    if (!sidebar || !main) return;
-
-    if (sidebar.parentElement.classList.contains("page-wrapper")) return;
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "page-wrapper";
-    main.parentNode.insertBefore(wrapper, main);
-    wrapper.appendChild(sidebar);
-    wrapper.appendChild(main);
+  // SECTION Footer Year Stamp
+  function stampYear() {
+    const yearNode = document.getElementById("year");
+    if (yearNode) {
+      yearNode.textContent = new Date().getFullYear();
+    }
   }
-  // /SECTION Desktop Layout Wrapper
+  // /SECTION Footer Year Stamp
+
+  // SECTION Layout Composition
+  function composeShell() {
+    const appShell = document.querySelector(".app-shell");
+    const layoutRoot = document.querySelector("[data-layout-root]");
+    const navMount = document.getElementById("include-nav");
+    if (!appShell || !layoutRoot || !navMount) return;
+
+    const header = navMount.querySelector(".site-header");
+  const sidebar = navMount.querySelector(".site-sidebar");
+  const main = layoutRoot.querySelector("main");
+
+    if (header) {
+      appShell.insertBefore(header, layoutRoot);
+    }
+
+    if (sidebar && main) {
+      layoutRoot.insertBefore(sidebar, main);
+    } else if (sidebar) {
+      layoutRoot.insertBefore(sidebar, layoutRoot.firstChild || null);
+    }
+
+    navMount.remove();
+  }
+
+  function composeFooter() {
+    const footerMount = document.getElementById("include-footer");
+    if (!footerMount) return;
+
+    const footer = footerMount.querySelector(".site-footer");
+    if (footer) {
+      footerMount.parentNode.insertBefore(footer, footerMount);
+    }
+
+    footerMount.remove();
+  }
+  // /SECTION Layout Composition
 
   // SECTION Boot Sequence
   async function boot() {
-    await Promise.all([
-      inject("#include-nav", "/partials/nav.html"),
-      inject("#include-footer", "/partials/footer.html"),
-    ]);
+    try {
+      await Promise.all([
+        inject("#include-nav", "/partials/nav.html"),
+        inject("#include-footer", "/partials/footer.html"),
+      ]);
+    } catch (err) {
+      console.error(err);
+    }
+
+    composeShell();
+    composeFooter();
     markCurrent();
-    wrapForDesktop();
     sidebarEnhance();
+    stampYear();
   }
 
-  document.addEventListener("DOMContentLoaded", boot);
+  document.addEventListener("DOMContentLoaded", () => {
+    boot().catch((err) => console.error(err));
+  });
   // TODO: consider restoring focus to the toggle when sidebar closes via backdrop.
   // /SECTION Boot Sequence
 })();

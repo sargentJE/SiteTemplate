@@ -21,9 +21,24 @@
 </head>
 <body>
   <!-- ANCHOR Body -->
-  <!-- SECTION Injected Navigation -->
-  <div id="include-nav"></div>
-  <!-- /SECTION Injected Navigation -->
+  <div class="app-shell">
+    <div id="include-nav"></div>
+
+    <div class="page-body" data-layout-root>
+      <!-- SECTION Main Content -->
+      <main id="main" role="main">
+        <section class="container section">
+          <h1>Accessibility</h1>
+          <p class="max-prose">We aim for WCAG 2.2 AA. If you encounter barriers, email us and we’ll fix them.</p>
+          <h2 id="privacy" class="mt-3">Privacy</h2>
+          <p class="max-prose">We collect only what we need to respond. No invasive analytics.</p>
+        </section>
+      </main>
+      <!-- /SECTION Main Content -->
+    </div>
+  </div>
+
+  <div id="include-footer"></div>
 
   <!-- SECTION Noscript Fallback -->
   <noscript>
@@ -43,33 +58,13 @@
       <a href="/contact.html">Contact</a> ·
       <a href="/accessibility.html">Accessibility</a>
     </nav>
-  </noscript>
-  <!-- /SECTION Noscript Fallback -->
-
-  <!-- SECTION Main Content -->
-  <main id="main" role="main">
-    <section class="container section">
-      <h1>Accessibility</h1>
-      <p class="max-prose">We aim for WCAG 2.2 AA. If you encounter barriers, email us and we’ll fix them.</p>
-      <h2 id="privacy" class="mt-3">Privacy</h2>
-      <p class="max-prose">We collect only what we need to respond. No invasive analytics.</p>
-    </section>
-  </main>
-  <!-- /SECTION Main Content -->
-
-  <!-- SECTION Injected Footer -->
-  <div id="include-footer"></div>
-  <!-- /SECTION Injected Footer -->
-
-  <!-- SECTION Noscript Footer -->
-  <noscript>
     <footer class="site-footer">
       <div class="container footer-inner">
         <p>© <script>document.write(new Date().getFullYear())</script> Accessible Tech Training</p>
       </div>
     </footer>
   </noscript>
-  <!-- /SECTION Noscript Footer -->
+  <!-- /SECTION Noscript Fallback -->
   <!-- /ANCHOR Body -->
 </body>
 </html>
