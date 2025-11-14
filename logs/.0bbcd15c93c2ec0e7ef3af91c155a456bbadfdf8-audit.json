@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/jamiesargent/Desktop/Dev/SiteTemplate/logs/.0bbcd15c93c2ec0e7ef3af91c155a456bbadfdf8-audit.json",
+    "files": [
+        {
+            "date": 1762942939978,
+            "name": "/Users/jamiesargent/Desktop/Dev/SiteTemplate/logs/mcp-puppeteer-2025-11-12.log",
+            "hash": "617c49b559a983acbeb780938867bc797e500be0e2c870eeb96f32b991d47c3b"
+        }
+    ],
+    "hashType": "sha256"
+}

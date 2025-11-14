@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — Assistive-Tech Training</title>
-  <meta name="description" content="Get in touch for a free chat.">
+  <meta name="description" content="Get in touch for a free discovery call about assistive-technology coaching." />
   <!-- /SECTION Metadata -->
 
   <!-- SECTION Assets -->
@@ -27,10 +27,25 @@
     <div class="page-body" data-layout-root>
       <!-- SECTION Main Content -->
       <main id="main" role="main">
-        <section class="container section">
-          <h1>Contact</h1>
-          <p class="lead">Call <a href="tel:+447000000000">07000 000000</a> or email <a href="mailto:hello@example.com">hello@example.com</a>.</p>
-          <form class="card mt-3" method="post" action="/api/contact" novalidate aria-describedby="formStatus">
+        <section class="container section split">
+          <div class="card">
+            <p class="eyebrow">Contact</p>
+            <h1>Let’s plan your first session</h1>
+            <p class="lead">Call <a href="tel:+447000000000">07000&nbsp;000000</a> or email <a href="mailto:hello@example.com">hello@example.com</a>. We usually respond within one working day.</p>
+            <div class="bg-contrast mt-3">
+              <p class="mb-0"><strong>Availability</strong></p>
+              <p class="mb-0">Weekdays 9&nbsp;am–7&nbsp;pm · Limited Saturday slots</p>
+              <p class="mb-0">Remote worldwide · In-person across Kent &amp; London</p>
+            </div>
+            <ul class="list-check mt-3">
+              <li>Free 20-minute discovery call</li>
+              <li>Written quotes for Access to Work</li>
+              <li>Accessible documents on request</li>
+            </ul>
+          </div>
+          <form class="card" method="post" action="/api/contact" novalidate aria-describedby="formStatus">
+            <p class="eyebrow">Enquiry form</p>
+            <p class="text-muted">Tell us a little about your devices, goals, and preferred contact method.</p>
             <div class="hidden-visually" aria-hidden="true">
               <label for="hp">Leave this field empty</label>
               <input id="hp" name="hp" type="text" tabindex="-1" autocomplete="off">
@@ -42,7 +57,7 @@
             <div class="form-row">
               <div>
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email">
+                <input id="email" name="email" type="email" required>
               </div>
               <div>
                 <label for="phone">Phone</label>
@@ -53,9 +68,13 @@
               <label for="message">Message</label>
               <textarea id="message" name="message" rows="5" required></textarea>
             </div>
+            <div>
+              <label for="supporting">Anything we should know?</label>
+              <textarea id="supporting" name="supporting" rows="3" placeholder="E.g. preferred format, interpreter needed, time zone"></textarea>
+            </div>
             <div class="form-consent">
               <input id="consent" name="consent" type="checkbox" required>
-              <label for="consent">I consent to contact.</label>
+              <label for="consent">I consent to being contacted.</label>
             </div>
             <button class="btn btn-primary" type="submit">Send enquiry</button>
             <div id="formStatus" class="status" role="status" aria-live="polite"></div>

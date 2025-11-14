@@ -1,10 +1,27 @@
 /* ANCHOR Spacing Utilities */
-.mt-1 { margin-top: 0.25rem; }
-.mt-2 { margin-top: 0.5rem; }
-.mt-3 { margin-top: 1rem; }
-.mt-4 { margin-top: 1.5rem; }
+.mt-1 { margin-top: 0.35rem; }
+.mt-2 { margin-top: 0.75rem; }
+.mt-3 { margin-top: 1.25rem; }
+.mt-4 { margin-top: 1.75rem; }
+.mb-0 { margin-bottom: 0 !important; }
+.py-0 { padding-block: 0 !important; }
+.section-tight { padding-block: 1.25rem; }
 /* /ANCHOR Spacing Utilities */
 
 /* ANCHOR Content Width */
 .max-prose { max-width: 68ch; }
+.text-center { text-align: center; }
+.align-center { margin-inline: auto; }
 /* /ANCHOR Content Width */
+
+/* ANCHOR Background Helpers */
+.bg-muted { background: linear-gradient(180deg, rgba(239, 246, 255, 0.7), rgba(239, 246, 255, 0)); border-radius: var(--radius-lg); padding: 2rem; border: 1px solid rgba(228, 231, 236, 0.6); }
+.bg-contrast { background: rgba(15, 23, 42, 0.03); border-radius: var(--radius); padding: 1.5rem; }
+/* /ANCHOR Background Helpers */
+
+/* ANCHOR Flow Helpers */
+.flow { display: grid; gap: 0.75rem; }
+.flow-lg { display: grid; gap: 1.5rem; }
+.split { display: grid; gap: 1.5rem; }
+@media (min-width: 900px) { .split { grid-template-columns: 1.2fr 0.8fr; } }
+/* /ANCHOR Flow Helpers */
